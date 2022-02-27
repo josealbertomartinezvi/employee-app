@@ -1,12 +1,33 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+import { Schema, model } from 'mongoose';
 
-var empleadoSchema = new Schema({
-	nombre: { type: String },
-	apellido: { type: String },	
-	edad: { type: Number }, //TODO:Modificar por fecha de nacimiento y calcular edad en la interfaz de usuario
-	genero: { type: String }
+const empleadoSchema = new Schema({
+	nombre: {
+		type: String, 
+		required: true,
+		trim: true,
+	},
+	apellido: {
+		type: String, 
+		required: true,
+		trim: true,
+	},
+	fechaNacimiento: {
+		type: Date, 
+		required: true,
+	},
+	sexo: {
+		type: String, 
+		required: true,
+		trim: true,
+	},
+	fechaIngreso: {
+		type: Date, 
+		required: true,
+	},
+	estrato: {
+		type: Number,
+		required: true,
+	}
 });
 
-
-module.exports = mongoose.model('empleados', empleadoSchema);
+export default model('empleado', empleadoSchema);

@@ -9,6 +9,8 @@ export const init = () => {
     const app = express();
     const server = http.createServer(app);
 
+    app.use(express.json());
+
     app.set('port', config.port);
 
     router(app);
