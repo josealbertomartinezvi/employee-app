@@ -1,0 +1,9 @@
+# Output folder
+build/
+
+# node.js
+#
+node_modules/
+
+# Environment variables
+.env
