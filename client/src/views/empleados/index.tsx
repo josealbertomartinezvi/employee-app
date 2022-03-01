@@ -28,7 +28,7 @@ const Empleados = () => {
               <td>{empleado.nombre}</td>
               <td>{empleado.apellido}</td>
               <td>{empleado.fechaNacimiento}</td>
-              <td></td>
+              <td>{empleado.edad}</td>
               <td>{empleado.sexo}</td>
               <td>{empleado.fechaIngreso}</td>
               <td>{empleado.estrato}</td>
