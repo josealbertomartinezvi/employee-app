@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { contarLetras } from './../utils/contarLetras';
+import { contarLetras } from '../utils/contarLetras';
 
 const empleadoSchema = new Schema({
 	nombre: {
