@@ -1,23 +1,7 @@
 import { useEffect, useState } from "react";
 import { getEmpleados } from './../../services/empleados';
 import obtenerEdad from './../../utils/edad';
-
-type TEmpleado = {
-    _id: string;
-    nombre: string;
-    apellido: string;
-    fechaNacimiento: Date;
-    fechaIngreso: Date;
-    edad: number;
-    sexo: string;
-    estrato: number;
-    letras: Array<TLetra>;
-}
-
-type TLetra = {
-    letras: string;
-    cantidad: number;
-}
+import { TEmpleado } from './../../utils/types/empleados';
 
 const useEmpleados = () => {
     const [empleados, setEmpleados] = useState<Array<TEmpleado>>([]);
@@ -45,6 +29,6 @@ const useEmpleados = () => {
     return {
         empleados
     };
-  };
+};
   
-  export default useEmpleados;
+export default useEmpleados;

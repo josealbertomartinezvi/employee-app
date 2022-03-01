@@ -4,4 +4,6 @@ type CommonResponse = Promise<{ data: any; error: boolean }>;
 
 const getEmpleados = async (): CommonResponse => instance.get('/empleados');
 
-export { getEmpleados };
+const guardarEmpleado = async ( empleado: any ): CommonResponse => instance.post('/empleados', { ...empleado })
+
+export { getEmpleados, guardarEmpleado };
