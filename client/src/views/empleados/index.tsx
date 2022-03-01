@@ -1,6 +1,8 @@
-
+import useEmpleados from './useEmpleados'
 const Empleados = () => {
 
+  const { empleados } = useEmpleados();
+  
   return (
     <>    
       <h1>Empleados</h1>
@@ -20,21 +22,21 @@ const Empleados = () => {
           </tr>
         </thead>
         <tbody>
-          {[].map( (empleado, index) => (
+          {empleados.map((empleado, index) => (
             <tr key={index}>
-              <th scope="row">{ index }</th>
-              <td>{'empleado.nombre'}</td>
-              <td>{'empleado.apellido'}</td>
-              <td>{'empleado.fechaNacimiento'}</td>
+              <th scope="row">{ index + 1 }</th>
+              <td>{empleado.nombre}</td>
+              <td>{empleado.apellido}</td>
+              <td>{empleado.fechaNacimiento}</td>
               <td></td>
-              <td>{'empleado.sexo'}</td>
-              <td>{'empleado.fechaIngreso'}</td>
-              <td>{'empleado.estrato'}</td>
+              <td>{empleado.sexo}</td>
+              <td>{empleado.fechaIngreso}</td>
+              <td>{empleado.estrato}</td>
               <td></td>
               <td></td>
             </tr>
           ))}
-          { [].length == 0 && <tr><th className="text-center" colSpan={10}>No existen empleados registrados</th></tr> }
+          { empleados.length === 0 && <tr><th className="text-center" colSpan={10}>No existen empleados registrados</th></tr> }
         </tbody>
       </table>
     </>

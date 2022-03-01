@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import http from 'http';
 import router from './routes';
 import config from './utils/config';
@@ -10,6 +11,7 @@ export const init = () => {
     const server = http.createServer(app);
 
     app.use(express.json());
+    app.use(cors());
 
     app.set('port', config.port);
 
