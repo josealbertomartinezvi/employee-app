@@ -3,10 +3,10 @@ export const contarLetras = (empleado) => {
     const { nombre, apellido } = empleado;
     const nombreCompleto = `${nombre} ${apellido}`.replace(/ /g, "").toUpperCase();
 
-    generrarArray(nombreCompleto, empleado, []);
+    generarArray(nombreCompleto, empleado, []);
 }
 
-const generrarArray = (nombre, empleado, letras) => {
+const generarArray = (nombre, empleado, letras) => {
 
     if(nombre.length === 0){
         empleado.letras = letras;
@@ -20,6 +20,6 @@ const generrarArray = (nombre, empleado, letras) => {
 
     letras = [ ...letras, { letra, cantidad: (longitudInicial - longitudFinal) } ];
 
-    generrarArray(nombreFinal, empleado, letras);
+    generarArray(nombreFinal, empleado, letras);
 
 }
