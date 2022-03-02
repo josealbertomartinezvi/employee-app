@@ -1,14 +1,16 @@
 import useEmpleados from './useEmpleados';
-import { MdSystemUpdateAlt, MdDeleteOutline } from 'react-icons/md';
+import CustomModal from './../../components/customModal';
+import { MdSystemUpdateAlt, MdDeleteOutline, MdRemoveRedEye } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 const Empleados = () => {
 
-  const { empleados, eliminarEmpleado } = useEmpleados();
+  const { empleados, empleadoSeleccionado, eliminarEmpleado, seleccionarEmpleado, setOpen, open } = useEmpleados();
   
   return (
     <>    
       <h1>Empleados</h1>
+      <CustomModal setOpen={setOpen} open={open} empleado={empleadoSeleccionado} />
       <div className="table-responsive">
         <table className="table table-dark mt-5">
           <thead>
@@ -36,7 +38,7 @@ const Empleados = () => {
                 <td>{empleado.sexo}</td>
                 <td>{empleado.fechaIngreso.split('T')[0]}</td>
                 <td>{empleado.estrato}</td>
-                <td></td>
+                <td><button onClick={() => seleccionarEmpleado(empleado)} className="btn btn-warning"><MdRemoveRedEye /></button></td>
                 <td>
                   <Link className="btn btn-primary" style={{marginRight: 2}} to={`empleado/nuevo/${empleado._id}`}><MdSystemUpdateAlt /></Link>
                   <button onClick={() => eliminarEmpleado(empleado._id as string)} className="btn btn-danger"><MdDeleteOutline /></button>
