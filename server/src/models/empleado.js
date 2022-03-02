@@ -26,7 +26,7 @@ const empleadoSchema = new Schema({
 		required: true,
 	},
 	estrato: {
-		type: Number,
+		type: String, 
 		required: true,
 	}
 });

@@ -7,7 +7,7 @@ export type TEmpleado = {
     fechaIngreso: string;
     edad?: number;
     sexo: string;
-    estrato: number;
+    estrato: string;
     letras?: Array<TLetra>;
 }
 
@@ -22,5 +22,5 @@ export const defaultValue = {
     fechaNacimiento: '',
     sexo: '',
     fechaIngreso: '',
-    estrato: 0
+    estrato: ''
 };

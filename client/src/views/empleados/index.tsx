@@ -33,10 +33,10 @@ const Empleados = () => {
                 <th scope="row">{ index + 1 }</th>
                 <td>{empleado.nombre}</td>
                 <td>{empleado.apellido}</td>
-                <td>{empleado.fechaNacimiento.split('T')[0]}</td>
+                <td>{empleado.fechaNacimiento?.split('T')[0]}</td>
                 <td>{empleado.edad} años</td>
                 <td>{empleado.sexo}</td>
-                <td>{empleado.fechaIngreso.split('T')[0]}</td>
+                <td>{empleado.fechaIngreso?.split('T')[0]}</td>
                 <td>{empleado.estrato}</td>
                 <td><button onClick={() => seleccionarEmpleado(empleado)} className="btn btn-warning"><MdRemoveRedEye /></button></td>
                 <td>

@@ -6,6 +6,8 @@ import { TEmpleado, defaultValue } from './../../utils/types/empleados';
 const useNuevo = () => {
 
     const [ empleado , setEmpleado ] = useState<TEmpleado>(defaultValue);
+    const [ errores , setErrores ] = useState<TEmpleado>(defaultValue);
+
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -25,6 +27,11 @@ const useNuevo = () => {
             ...empleado,
             [ target.name ]: target.value
         });
+
+        setErrores({
+            ...errores,
+            [ target.name ]: ''
+        });
     };
 
     const guardar = async (e: any) => {
@@ -34,8 +41,8 @@ const useNuevo = () => {
             await guardarEmpleado(empleado);
             alert('Empleado registrado correctamente.');
             setEmpleado(defaultValue);
-        }catch (error) {
-            console.error(error);
+        }catch (error: any) {
+            setErrores(error.response.data);
         }
     }
 
@@ -45,8 +52,8 @@ const useNuevo = () => {
             await actualizarEmpleado(empleado);
             alert('Empleado actualizado correctamente.');
             navigate('/');
-        }catch (error) {
-            console.error(error);
+        }catch (error: any) {
+            setErrores(error.response.data);
         }
     }
 
@@ -62,7 +69,8 @@ const useNuevo = () => {
         asignarValores,
         empleado,
         accion,
-        id
+        id,
+        errores,
     };
 };
   

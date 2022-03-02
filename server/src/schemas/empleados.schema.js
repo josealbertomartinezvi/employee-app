@@ -6,7 +6,7 @@ const empleadoSchema = {
     fechaNacimiento: Joi.date().required().empty(''),
     sexo: Joi.string().required().empty(''),
     fechaIngreso: Joi.date().required().empty(''),
-    estrato: Joi.number().required().empty(''),
+    estrato: Joi.string().required().empty(''),
 };
 
 const idSchema = {
