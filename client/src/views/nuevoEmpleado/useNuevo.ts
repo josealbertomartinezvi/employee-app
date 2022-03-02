@@ -11,6 +11,8 @@ const useNuevo = () => {
 
     const obtenerEmpleado = async () => {
 
+        if (!id) return;
+
         const { data } = await getEmpleado(id as string);
         data.fechaNacimiento = data.fechaNacimiento.split('T')[0];
         data.fechaIngreso = data.fechaIngreso.split('T')[0];
@@ -53,7 +55,7 @@ const useNuevo = () => {
     useEffect(() => {
         if (!id) setEmpleado(defaultValue);
         obtenerEmpleado();
-    }, [])
+    }, [id])
     
   
     return {
