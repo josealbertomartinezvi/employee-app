@@ -1,7 +1,10 @@
-import useEmpleados from './useEmpleados'
+import useEmpleados from './useEmpleados';
+import { MdSystemUpdateAlt, MdDeleteOutline } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+
 const Empleados = () => {
 
-  const { empleados } = useEmpleados();
+  const { empleados, actualizarEmpleado, eliminarEmpleado } = useEmpleados();
   
   return (
     <>    
@@ -33,7 +36,10 @@ const Empleados = () => {
               <td>{empleado.fechaIngreso}</td>
               <td>{empleado.estrato}</td>
               <td></td>
-              <td></td>
+              <td>
+                <Link className="btn btn-primary" style={{marginRight: 2}} to={`empleado/nuevo/${empleado._id}`}><MdSystemUpdateAlt /></Link>
+                <button onClick={() => eliminarEmpleado(empleado._id as string)} className="btn btn-danger"><MdDeleteOutline /></button>
+              </td>
             </tr>
           ))}
           { empleados.length === 0 && <tr><th className="text-center" colSpan={10}>No existen empleados registrados</th></tr> }

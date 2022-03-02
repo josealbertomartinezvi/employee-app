@@ -1,10 +1,22 @@
-import { useState } from "react";
-import { guardarEmpleado } from './../../services/empleados';
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { guardarEmpleado, getEmpleado, actualizarEmpleado } from './../../services/empleados';
 import { TEmpleado, defaultValue } from './../../utils/types/empleados';
 
 const useNuevo = () => {
 
     const [ empleado , setEmpleado ] = useState<TEmpleado>(defaultValue);
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    const obtenerEmpleado = async () => {
+
+        const { data } = await getEmpleado(id as string);
+        data.fechaNacimiento = data.fechaNacimiento.split('T')[0];
+        data.fechaIngreso = data.fechaIngreso.split('T')[0];
+        setEmpleado(data);
+
+    }
     
     const asignarValores = ( { target }: any ) => {
         setEmpleado({
@@ -24,11 +36,31 @@ const useNuevo = () => {
             console.error(error);
         }
     }
+
+    const actualizar = async (e: any) => {
+        e.preventDefault();
+        try{ 
+            await actualizarEmpleado(empleado);
+            alert('Empleado actualizado correctamente.');
+            navigate('/');
+        }catch (error) {
+            console.error(error);
+        }
+    }
+
+    const accion = (e: any) => id ? actualizar(e) : guardar(e); 
+
+    useEffect(() => {
+        if (!id) setEmpleado(defaultValue);
+        obtenerEmpleado();
+    }, [])
+    
   
     return {
         asignarValores,
         empleado,
-        guardar
+        accion,
+        id
     };
 };
   

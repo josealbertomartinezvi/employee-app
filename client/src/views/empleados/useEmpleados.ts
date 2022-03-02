@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getEmpleados } from './../../services/empleados';
+import { getEmpleados, removerEmpleado } from './../../services/empleados';
 import obtenerEdad from './../../utils/edad';
 import { TEmpleado } from './../../utils/types/empleados';
 
@@ -21,13 +21,28 @@ const useEmpleados = () => {
         }
     };
 
+    const eliminarEmpleado = async (id: string) => {
+        try{
+            const { data } = await removerEmpleado(id);
+            alert( data.message );
+            hacerLlamado();
+        }catch (error) {
+            console.error(error)
+        }
+    }
+
+    const actualizarEmpleado = (id: string) => {
+        console.log(id)
+    }
+
     useEffect(() => {
         hacerLlamado();
-    }, [])
-    
+    }, []);
   
     return {
-        empleados
+        empleados,
+        actualizarEmpleado,
+        eliminarEmpleado
     };
 };
   

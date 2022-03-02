@@ -2,12 +2,12 @@ import useNuevo from "./useNuevo";
 
 const NuevoEmpleado = () => {
 
-  const { empleado, asignarValores, guardar } = useNuevo();
+  const { empleado, asignarValores, accion, id } = useNuevo();
 
   return (
     <>
       <h1>Nuevo Empleado</h1>
-      <form className="mt-5" onSubmit={guardar}>
+      <form className="mt-5" onSubmit={accion}>
         <div className="form-group row">
           <label className="col-sm-2 col-form-label">Nombre</label>
           <div className="col-sm-5">
@@ -56,7 +56,7 @@ const NuevoEmpleado = () => {
             </select>
           </div>
         </div>
-        <button type="submit" className="btn btn-primary mt-5">Enviar</button>
+        <button type="submit" className="btn btn-primary mt-5">{id ? 'Actualizar' : 'Enviar'}</button>
       </form>
     </>
     
