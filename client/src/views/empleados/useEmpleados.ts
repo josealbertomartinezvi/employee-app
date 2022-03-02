@@ -31,17 +31,12 @@ const useEmpleados = () => {
         }
     }
 
-    const actualizarEmpleado = (id: string) => {
-        console.log(id)
-    }
-
     useEffect(() => {
         hacerLlamado();
     }, []);
   
     return {
         empleados,
-        actualizarEmpleado,
         eliminarEmpleado
     };
 };

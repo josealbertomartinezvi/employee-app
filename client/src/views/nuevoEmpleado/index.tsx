@@ -5,9 +5,9 @@ const NuevoEmpleado = () => {
   const { empleado, asignarValores, accion, id } = useNuevo();
 
   return (
-    <>
+    <div className="text-center">
       <h1>Nuevo Empleado</h1>
-      <form className="mt-5" onSubmit={accion}>
+      <form style={{paddingLeft: '30%', paddingRight: '15%', paddingTop: '4%'}} onSubmit={accion}>
         <div className="form-group row">
           <label className="col-sm-2 col-form-label">Nombre</label>
           <div className="col-sm-5">
@@ -58,7 +58,7 @@ const NuevoEmpleado = () => {
         </div>
         <button type="submit" className="btn btn-primary mt-5">{id ? 'Actualizar' : 'Enviar'}</button>
       </form>
-    </>
+    </div>
     
   )
 }

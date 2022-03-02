@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { links } from './config';
 
 const Navegacion = () => (
-    <nav className="navbar navbar-expand-lg text-white  bg-dark">
-        <NavLink className={'navbar-brand'} to='/'>Navbar</NavLink>
+    <nav className="navbar navbar-expand-lg text-white navbar-dark bg-dark">
+        <NavLink className={'navbar-brand'} to='/'>Prueba Tecnica</NavLink>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
             <span className="navbar-toggler-icon"></span>
         </button>
